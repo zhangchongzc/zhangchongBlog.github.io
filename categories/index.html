@@ -60,12 +60,6 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/photos">相册</a></li>
-	        
-				<li><a href="/categories">分类</a></li>
-	        
-				<li><a href="/tags/">标签</a></li>
-	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -120,12 +114,6 @@
 			
 				
 			
-				
-			
-				
-			
-				
-			
 			
 			
 			<nav class="header-nav">
@@ -141,16 +129,10 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 70%">
+				<ul style="width: 50%">
 				
 				
-					<li style="width: 25%"><a href="/">主页</a></li>
-		        
-					<li style="width: 25%"><a href="/photos">相册</a></li>
-		        
-					<li style="width: 25%"><a href="/categories">分类</a></li>
-		        
-					<li style="width: 25%"><a href="/tags/">标签</a></li>
+					<li style="width: 100%"><a href="/">主页</a></li>
 		        
 				</ul>
 			</nav>
@@ -185,12 +167,6 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-         <div id="toc" class="toc-article">
-    <div class="toc-title">目录</div>
-    <%- toc(item.content, {list_number: false}) %>
-</div>
-
-          
         
       
 
@@ -400,6 +376,18 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">javascript css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
