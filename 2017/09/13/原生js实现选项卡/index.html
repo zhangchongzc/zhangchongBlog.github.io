@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/09/13/原生js实现选项卡/index.html">
 <meta property="og:site_name" content="ZhangchongBlog">
 <meta property="og:description" content="选项卡是我们在平常浏览网页时经常见到的也是自己开发时经常使用的显示格式，能够起到节省空间，与用户交互更流畅的效果。下面是我用原生的javascript写的选项卡。共有点击切换、滑动切换、滑动延时切换、自动切换四种类型。以下是具体代码（所有html css 代码共用）：">
-<meta property="og:updated_time" content="2017-09-13T15:14:09.088Z">
+<meta property="og:updated_time" content="2017-09-13T16:11:02.068Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="原生js实现选项卡">
 <meta name="twitter:description" content="选项卡是我们在平常浏览网页时经常见到的也是自己开发时经常使用的显示格式，能够起到节省空间，与用户交互更流畅的效果。下面是我用原生的javascript写的选项卡。共有点击切换、滑动切换、滑动延时切换、自动切换四种类型。以下是具体代码（所有html css 代码共用）：">
@@ -73,11 +73,7 @@
     			
             
     			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
-    			
             
-    			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
     			
             
 		</nav>
@@ -302,6 +298,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2017/09/22/JS数据类型/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          JS数据类型
+        
+      </div>
+    </a>
+  
   
     <a href="/2017/09/13/css、js实现下拉菜单/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">css、js实现下拉菜单</div>
@@ -323,6 +328,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -388,11 +406,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
       
     
       
-      
-      
     
-      
-      
       
     
     
@@ -401,15 +415,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 100%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
-      
         
-      
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -481,43 +491,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
     
 
     
-    	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-        <ul class="search-ul">
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
-            </li>
-          
-        </ul>
-  		
-    	</section>
-    
 
-    
-    	<section class="tools-section tools-section-me" q-show="aboutme">
-  	  	
-    	</section>
     
   </div>
   
