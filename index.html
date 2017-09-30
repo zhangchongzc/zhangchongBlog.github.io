@@ -156,6 +156,68 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-export-export-default-exports-module-exports区别与联系" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/28/export-export-default-exports-module-exports区别与联系/">export export default exports module.exports区别与联系</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/28/export-export-default-exports-module-exports区别与联系/" class="archive-article-date">
+  	<time datetime="2017-09-28T09:05:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/28/export-export-default-exports-module-exports区别与联系/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-JS数据类型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -176,57 +238,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="理解基本类型与引用类型"><a href="#理解基本类型与引用类型" class="headerlink" title="理解基本类型与引用类型"></a>理解基本类型与引用类型</h2><blockquote>
-<p>ECMAScript中有两种数据类型的值，一种是基本类型，另一种是引用类型。基本类型指的是简单的数据段，引用类型指的是可能由多个值构成的对象。</p>
-<h3 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h3><p>　　基本类型有5种，即 <code>String</code> <code>Number</code> <code>Boolean</code> <code>Null</code> <code>Underfined</code>。<br>基本类型的值只能是单独的数据段，不能在其上添加属性值。与引用类型作对比，引用类型是可以在其上添加属性值的。</p>
-<p>基本数据类型是按值访问的，所以存放在基本数据类型的变量中的事具体的值，我们可以直 接操作变量中的值。</p>
-</blockquote>
-<pre><code>var num1=5;
-var num2=num1;
-</code></pre><blockquote>
-<p>如上代码中创建了一个<code>num1</code>变量并赋值5，然后将其复制到新创建的<code>num2</code>中,这时候的两个变量是完全两个独立的值，一个的值改变并不会影响另一个，在复制时只是将其中的值传给了另一个变量。</p>
-<h3 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h3><p>引用类型的值通俗点来说可以是由多个基本类型的值（也可以是对象）组成的对象。与基本类型的变量不同的是，引用类型的变量中保存的并不是对象的值。而是指向内存中对象值的引用。</p>
-</blockquote>
-<pre><code>var obj1=new object();
-var obj2=obj1;
-obj1.name=&quot;zhangchong&quot;;
-alert(obj2.name);//zhangchong
-</code></pre><blockquote>
-<p>由此复制操作可看出，在引用类型变量中存储的是指向实际存储位置的引用，复制只是将存在其中的引用赋值给了obj2。</p>
-</blockquote>
-<h3 id="javascript中的按值传递"><a href="#javascript中的按值传递" class="headerlink" title="javascript中的按值传递"></a>javascript中的按值传递</h3><blockquote>
-<p>先来看几个例子：</p>
-</blockquote>
-<pre><code>1.function addOne(num){
-    num++;
- }
- var num1=1;
- var result=addOne(num1);
- alert(num1);//1
- alert(result);//2
-
-2.function setAge(obj,num){
-    obj.age=num;
- }
- var zhangsan=new object();
- setAge(zhangsan,10);
- alert(zhangsan.age);//10
-
-3.function setAge(obj,num){
-    obj.age=num;
-    obj=new object();
-    obj.age=20;
- }
- var wangwu=new object();
- setAge(wangwu,8);
- alert(wangwu.age);//8
-</code></pre><blockquote>
-<p>上面的三段代码将<code>javascript</code>中传递参数时的按值传递体现的淋漓尽致。</p>
-<p>1.首先第一段中，可以看出基本类型值在传递的时候只是将自己的值传入函数中，在函数中任何的操作都不会影响到外边原本的变量。</p>
-<p>2.第二段代码中，将引用类型的变量传入函数中，此处可能就会引起人们的不理解，js中不是按值传递，为什么在函数中做的修改会反映到外界原本的对象身上。其实此处仍然是按值传递，因为你继续看第三段代码，<code>wangwu</code>是按引用传递的话，那么最后<code>alert</code>的值应该是<code>20</code>。</p>
-<p>3.所以此处到底应该怎么理解呢，首先你要先明白上边所叙述的引用类型的变量当中究竟存储的是什么。是<strong>引用</strong>！是指向内存中引用类型对象的引用。在向函数的形参传递时，只是将自身变量中保存的引用值复制了一份，给了形参。所以在第二段代码中，<code>obj</code>的值是指向内存中<code>zhangsan</code>的引用，故函数中的修改可以影响到外边的引用类型<code>zhangsan</code>。而第三段代码中<code>obj.age=num</code>，此时<code>obj</code>中保存的时<code>wangwu</code>的引用，但<code>obj=new object</code>已将<code>obj</code>中保存的引用值更新为新生成对象值的引用。所以<code>obj.age=20</code>修改的是新生成对象的<code>age</code>。而函数外的<code>wangwu</code>中保存的仍是原本对象的引用，故<code>wangwu.age</code>仍是<code>18</code>。</p>
-</blockquote>
-
+        <p>理解Javascript中的基本数据类型与引用类型<br>
+        
+          <a class="article-more-a" href="/2017/09/22/JS数据类型/#more">more >></a>
+        
       
 
       
