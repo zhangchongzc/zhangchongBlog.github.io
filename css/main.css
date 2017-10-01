@@ -1180,7 +1180,7 @@ pre .javascript .function {
 }
 .menu .menu-item a {
   display: block;
-  text-align: center;
+  text-align: center !important;
   font-size: 13px;
   line-height: inherit;
   border-bottom: 1px solid transparent;
@@ -1929,7 +1929,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #3c2d87;
+  background: #5b7c74;
 }
 .links-of-blogroll {
   font-size: 13px;
