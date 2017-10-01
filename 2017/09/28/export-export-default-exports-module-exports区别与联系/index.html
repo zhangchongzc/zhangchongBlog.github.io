@@ -100,7 +100,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/09/28/export-export-default-exports-module-exports区别与联系/index.html">
 <meta property="og:site_name" content="ZhangchongBlog">
 <meta property="og:description" content="对几种模块导入导出方式的小梳理">
-<meta property="og:updated_time" content="2017-10-01T10:28:19.824Z">
+<meta property="og:updated_time" content="2017-10-01T10:38:02.689Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="export export default exports module.exports区别与联系">
 <meta name="twitter:description" content="对几种模块导入导出方式的小梳理">
@@ -412,10 +412,8 @@ var a=require(&quot;./a&quot;)//默认文件是.js文件所以只需写a即可�
 var name=a.name;
 alert(name);//zhangsan
 </code></pre><h5 id="exports"><a href="#exports" class="headerlink" title="exports"></a>exports</h5><blockquote>
-<p>exports实际上是模块内部指向module.exports的一个变量。即在模块内部实际上有一行代码<code>var exports=module.exports</code>,故我们在用<code>exports</code>变量时应注意不要重新定义<code>exports</code>变量，以免切断了两者之间的关联。上述代码中，a模块导出代码可以改为: <code>exports.name=name;</code>。</p>
-</blockquote>
-<h3 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h3><h5 id="export与import"><a href="#export与import" class="headerlink" title="export与import"></a>export与import</h5><blockquote>
-<p>export是ES6中提供的模块导出的接口，当前模块内定义的变量若想被外部使用，需要用<code>export</code>导出。外部模块若想利用当前模块内的变量需要使用<code>import</code>导入当前模块用<code>export</code>导出的变量，导入时必须要知道要导入的变量的名字,并且放在<code>{}</code>中。</p>
+<p>exports实际上是模块内部指向module.exports的一个变量。即在模块内部实际上有一行代码<code>var exports=module.exports</code>,故我们在用<code>exports</code>变量时应注意不要重新定义<code>exports</code>变量，以免切断了两者之间的关联。上述代码中，a模块导出代码可以改为: <code>exports.name=name;</code>。    </p>
+<h3 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h3><h5 id="export与import"><a href="#export与import" class="headerlink" title="export与import"></a>export与import</h5><p>export是ES6中提供的模块导出的接口，当前模块内定义的变量若想被外部使用，需要用<code>export</code>导出。外部模块若想利用当前模块内的变量需要使用<code>import</code>导入当前模块用<code>export</code>导出的变量，导入时必须要知道要导入的变量的名字,并且放在<code>{}</code>中。</p>
 </blockquote>
 <pre><code>//a.js
 var name=&quot;zhangsan&quot;;
