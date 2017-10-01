@@ -176,73 +176,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>对几种模块导入导出方式的小梳理</p>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
-<p>以前自己在写<code>nodejs</code>服务端还有最近在学习<code>react</code>的时候经常用到几种模块的导入导出方式，感觉有点混乱，特地写下此文来梳理一下。</p>
-<h3 id="总括"><a href="#总括" class="headerlink" title="总括"></a>总括</h3><p>在具体描述如何使用以及区别之前我们首先要搞清楚这几个分别属于哪些规范。</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>—-</th>
-<th>导出</th>
-<th>导入</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>commonJS</td>
-<td><code>module.exports</code>  <code>exports</code></td>
-<td><code>require</code></td>
-</tr>
-<tr>
-<td>ES6</td>
-<td><code>export</code>  <code>export default</code></td>
-<td><code>import</code></td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>通过上述的表格应该能够将这几种导入导出关系的对应以及所属规范弄清楚，接下来便具体介绍一下如何使用</p>
-<h3 id="commonJS"><a href="#commonJS" class="headerlink" title="commonJS"></a>commonJS</h3><h5 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h5><p>commonJS为服务端模块规范，为同步加载方式，只有在加载完成后才能继续往下执行。NodeJS应用了commonJS规范。commonJS更加详细的介绍留待以后再写，想了解的可以移步<br> <a href="http://javascript.ruanyifeng.com/nodejs/module.html" target="_blank" rel="external">commonJS</a>。</p>
-<h5 id="module-exports"><a href="#module-exports" class="headerlink" title="module.exports"></a>module.exports</h5><p>在commonJS中认为一个文件即为一个模块，该模块自成作用域，在此模块内定义的函数、变量等等都是私有的，对外部模块不可见。但是每个模块内都有一个<code>module</code>对象，该对象即代表了当前模块，该对象的<code>exports</code>属性是模块提供的对外的接口。即如果外部模块如想访问该模块内部的数据，该模块需要通过<code>module.exports</code>导出，然后其他模块通过<code>require</code>导入之后才能使用。</p>
-</blockquote>
-<pre><code>//a.js
-var name=&quot;zhangsan&quot;;
-module.exports.name=name;//通过module.exports导出
-
-
-//b.js
-//在模块b中若想引用模块a中的变量需要通过require加载
-var a=require(&quot;./a&quot;)//默认文件是.js文件所以只需写a即可，此外需要注意此处可以是绝对路径也可以是相对路径
-var name=a.name;
-alert(name);//zhangsan
-</code></pre><h5 id="exports"><a href="#exports" class="headerlink" title="exports"></a>exports</h5><blockquote>
-<p>exports实际上是模块内部指向module.exports的一个变量。即在模块内部实际上有一行代码<code>var exports=module.exports</code>,故我们在用<code>exports</code>变量时应注意不要重新定义<code>exports</code>变量，以免切断了两者之间的关联。上述代码中，a模块导出代码可以改为: <code>exports.name=name;</code>。</p>
-</blockquote>
-<h3 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h3><h5 id="export与import"><a href="#export与import" class="headerlink" title="export与import"></a>export与import</h5><blockquote>
-<p>export是ES6中提供的模块导出的接口，当前模块内定义的变量若想被外部使用，需要用<code>export</code>导出。外部模块若想利用当前模块内的变量需要使用<code>import</code>导入当前模块用<code>export</code>导出的变量，导入时必须要知道要导入的变量的名字,并且放在<code>{}</code>中。</p>
-</blockquote>
-<pre><code>//a.js
-var name=&quot;zhangsan&quot;;
-export {name};
-//必须要将变量放在 {}中导出，否则 export name导出的是&quot;zhangsan&quot;字符串,外部模块无法获取到name变量。
-//b.js
-import {name} from &quot;./a.js&quot;;
-alert(name);//&quot;zhangsan&quot;
-</code></pre><h5 id="export-default"><a href="#export-default" class="headerlink" title="export default"></a>export default</h5><blockquote>
-<p>上边提到在导出时不能直接<code>export name</code><br>，必须要将<code>name</code>放在<code>{}</code>中。否则导出的只是<code>&quot;zhangsan&quot;</code>。但是如果我们在<code>name</code>前加上<code>default</code>，那么便可以了。实际上这是给<code>&quot;zhangsan&quot;</code>起了个系统默认变量名<code>default</code>，即<code>default</code>代表了<code>&quot;zhangsan&quot;</code>。<br>很明显<code>default</code>只能有一个值，所以在一个模块(一个js文件)中<code>default</code>只能有一个值，即只能使用一次<code>export default</code>。</p>
-<p>在导入时，系统默认输出的<code>default</code>变量允许你起任何名字。不用必须知道原模块内变量的名字。</p>
-</blockquote>
-<pre><code>//a.js
-var name=&quot;zhangsan&quot;;
-export default name;
-
-//b.js
-import name1 from &quot;./a.js&quot;;
-alert(name1);//&quot;zhangsan&quot;
-</code></pre><p>参考：<a href="http://www.php.cn/js-tutorial-357671.html" target="_blank" rel="external">http://www.php.cn/js-tutorial-357671.html</a></p>
-
+        <p>对几种模块导入导出方式的小梳理<br>
+        
+          <a class="article-more-a" href="/2017/09/28/export-export-default-exports-module-exports区别与联系/#more">more >></a>
+        
       
 
       
