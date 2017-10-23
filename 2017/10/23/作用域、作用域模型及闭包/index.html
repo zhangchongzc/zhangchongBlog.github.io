@@ -104,7 +104,7 @@ toc: true关于JS中作用域、作用域模型、及闭包的理解">
 <meta property="og:site_name" content="ZhangchongBlog">
 <meta property="og:description" content="title: 作用域、作用域模型及闭包date: 2017-10-23 00:09:50tags: javascriptcategories: JS学习笔记
 toc: true关于JS中作用域、作用域模型、及闭包的理解">
-<meta property="og:updated_time" content="2017-10-23T12:50:29.615Z">
+<meta property="og:updated_time" content="2017-10-23T12:56:30.755Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ZhangchongBlog">
 <meta name="twitter:description" content="title: 作用域、作用域模型及闭包date: 2017-10-23 00:09:50tags: javascriptcategories: JS学习笔记
@@ -404,7 +404,7 @@ alert(i);//10 js中在块级作用域中定义的即相当于在函数内定义�
 <p>由以上我们可以得出，ECMAScript中的作用域分为全局作用域和函数作用域，定义在任何函数外部的变量是全局作用域变量，不使用“var”关键字定义在函数内部的变量也是全局作用域变量，只有使用“var”关键字定义在函数内部的变量才是函数作用域变量，函数作用域变量会覆盖同名的全局作用域变量。全局作用域变量的可见区域是整个脚本（除了被同名函数作用域变量覆盖的区域），函数作用域变量的可见区域是函数内部（除了被内部嵌套函数中同名函数作用域变量覆盖的区域）</p>
 <h3 id="作用域模型"><a href="#作用域模型" class="headerlink" title="作用域模型"></a>作用域模型</h3><h4 id="执行环境"><a href="#执行环境" class="headerlink" title="执行环境"></a>执行环境</h4><p>在<code>javascript</code>中当控制流进入可执行代码中时，就说其进入了可执行环境，可执行代码的执行环境可组成一个逻辑上的栈结构，进入一个函数，便将当前函数的执行环境压栈。当前执行代码的执行环境总是在栈顶，当函数执行完毕之后，当前函数的执行环境弹栈并销毁，一般栈底是全局执行环境。</p>
 <h4 id="变量对象"><a href="#变量对象" class="headerlink" title="变量对象"></a>变量对象</h4><p>上边讲到执行环境，其实每个执行环境都有一个相关的变量对象，其实在执行环境栈中存的是指向该变量对象的指针。这个变量对象中有与该执行环境有关的一切函数及变量。上面我们所写的代码的执行环境栈中有两个执行环境，分别是全局执行环境指针和函数<code>f()</code>的执行环境指针，分别指向全局变量对象和函数<code>f()</code>的变量对象。</p>
-<h3 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h3><p>在上面代码中我们说当在函数执行环境中定义与全局环境同名的变量时，局部的变量会覆盖掉全局环境的变量。具体是怎么实现的呢，就是通过作用域链。其实在每个执行环境都会有一个相关的作用域链(一般是在执行环境中有一个scope指针指向此链)。这个作用域链你可以想象为和执行环境栈类似的指针栈。栈中每个元素都是指向某个执行环境变量对象的指针。栈顶是指向当前执行环境变量对象的指针，下一个元素是上一层执行环境的变量对象，栈底是全局执行环境的变量对象。然后当在一个执行环境中要利用一个变量或者函数时，先在作用域链的栈顶指针指向的变量对象中寻找(即当前执行环境)，如果找到则返回，找不到则继续沿着作用域链寻找，直到全局作用域，如果全局作用域中也没有则报<code>undefined</code>。</p>
+<h4 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h4><p>在上面代码中我们说当在函数执行环境中定义与全局环境同名的变量时，局部的变量会覆盖掉全局环境的变量。具体是怎么实现的呢，就是通过作用域链。其实在每个执行环境都会有一个相关的作用域链(一般是在执行环境中有一个scope指针指向此链)。这个作用域链你可以想象为和执行环境栈类似的指针栈。栈中每个元素都是指向某个执行环境变量对象的指针。栈顶是指向当前执行环境变量对象的指针，下一个元素是上一层执行环境的变量对象，栈底是全局执行环境的变量对象。然后当在一个执行环境中要利用一个变量或者函数时，先在作用域链的栈顶指针指向的变量对象中寻找(即当前执行环境)，如果找到则返回，找不到则继续沿着作用域链寻找，直到全局作用域，如果全局作用域中也没有则报<code>undefined</code>。</p>
 </blockquote>
 <p><em>当ECMAScript开始执行时，创建一个全局执行环境和全局变量对象；后面每次进入一个函数时（这个函数被调用），则创建一个当前函数的执行环境并压入栈，同时创建此执行环境的变量对象和作用域链，作用域链的创建规则是复制上一层环境的作用域链，并将指向本环境变量对象的指针放到链首；离开函数时，从栈中弹出此执行环境并销毁，同时销毁环境的变量对象和作用域链。</em></p>
 <h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><pre><code>var name=&apos;zhangsan&apos;
@@ -620,7 +620,7 @@ x();//lisi
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#toc-true"><span class="nav-number">1.</span> <span class="nav-text">toc: true</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域"><span class="nav-number">1.1.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域模型"><span class="nav-number">1.2.</span> <span class="nav-text">作用域模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#执行环境"><span class="nav-number">1.2.1.</span> <span class="nav-text">执行环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变量对象"><span class="nav-number">1.2.2.</span> <span class="nav-text">变量对象</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域链"><span class="nav-number">1.3.</span> <span class="nav-text">作用域链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包"><span class="nav-number">1.4.</span> <span class="nav-text">闭包</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#toc-true"><span class="nav-number">1.</span> <span class="nav-text">toc: true</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域"><span class="nav-number">1.1.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域模型"><span class="nav-number">1.2.</span> <span class="nav-text">作用域模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#执行环境"><span class="nav-number">1.2.1.</span> <span class="nav-text">执行环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变量对象"><span class="nav-number">1.2.2.</span> <span class="nav-text">变量对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#作用域链"><span class="nav-number">1.2.3.</span> <span class="nav-text">作用域链</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包"><span class="nav-number">1.3.</span> <span class="nav-text">闭包</span></a></li></ol></li></ol></div>
             
 
           </div>
