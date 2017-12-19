@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="javascript," />
+  <meta name="keywords" content="acm,算法," />
 
 
 
@@ -96,16 +96,34 @@
 
 
 
-<meta name="description" content="理解Javascript中的基本数据类型与引用类型">
+<meta name="description" content="将一个数分解质因子(因为一个数字要么是质数要么是能分解为质数的乘积)，或者求一个数字的质因子算法—- Pollard Rho 因数分解。
+
+
+如果这个质数恰等于n，则说明分解质因数的过程已经结束，打印出即可。
+如果n&amp;lt;&amp;gt;k，但n能被k整除，则应打印出k的值，并用n除以k的商,作为新的正整数你n,　重复执行第一步。
+如果n不能被k整除，则用k+1作为k的值,重复执行第一步。
+#incl">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS数据类型">
-<meta property="og:url" content="http://yoursite.com/2017/09/22/JS数据类型/index.html">
+<meta property="og:title" content="质因子分解">
+<meta property="og:url" content="http://yoursite.com/2017/12/19/质因子分解/index.html">
 <meta property="og:site_name" content="ZhangchongBlog">
-<meta property="og:description" content="理解Javascript中的基本数据类型与引用类型">
-<meta property="og:updated_time" content="2017-10-23T13:02:54.200Z">
+<meta property="og:description" content="将一个数分解质因子(因为一个数字要么是质数要么是能分解为质数的乘积)，或者求一个数字的质因子算法—- Pollard Rho 因数分解。
+
+
+如果这个质数恰等于n，则说明分解质因数的过程已经结束，打印出即可。
+如果n&amp;lt;&amp;gt;k，但n能被k整除，则应打印出k的值，并用n除以k的商,作为新的正整数你n,　重复执行第一步。
+如果n不能被k整除，则用k+1作为k的值,重复执行第一步。
+#incl">
+<meta property="og:updated_time" content="2017-12-19T13:34:08.921Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS数据类型">
-<meta name="twitter:description" content="理解Javascript中的基本数据类型与引用类型">
+<meta name="twitter:title" content="质因子分解">
+<meta name="twitter:description" content="将一个数分解质因子(因为一个数字要么是质数要么是能分解为质数的乘积)，或者求一个数字的质因子算法—- Pollard Rho 因数分解。
+
+
+如果这个质数恰等于n，则说明分解质因数的过程已经结束，打印出即可。
+如果n&amp;lt;&amp;gt;k，但n能被k整除，则应打印出k的值，并用n除以k的商,作为新的正整数你n,　重复执行第一步。
+如果n不能被k整除，则用k+1作为k的值,重复执行第一步。
+#incl">
 
 
 
@@ -134,13 +152,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/22/JS数据类型/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/12/19/质因子分解/"/>
 
 
 
 
 
-  <title>JS数据类型 | ZhangchongBlog</title>
+  <title>质因子分解 | ZhangchongBlog</title>
   
 
 
@@ -283,7 +301,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/22/JS数据类型/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/19/质因子分解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZhangChong">
@@ -300,7 +318,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JS数据类型</h1>
+          <h1 class="post-title" itemprop="name headline">质因子分解</h1>
         
 
         <div class="post-meta">
@@ -312,8 +330,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-22T00:32:18+08:00">
-                2017-09-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-19T21:31:25+08:00">
+                2017-12-19
               </time>
             
 
@@ -335,8 +353,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">JS学习笔记</span>
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
                   </a>
                 </span>
 
@@ -352,7 +370,7 @@
 
           
           
-             <span id="/2017/09/22/JS数据类型/" class="leancloud_visitors" data-flag-title="JS数据类型">
+             <span id="/2017/12/19/质因子分解/" class="leancloud_visitors" data-flag-title="质因子分解">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -383,57 +401,55 @@
       
 
       
-        <p>理解Javascript中的基本数据类型与引用类型<br><a id="more"></a></p>
-<h2 id="理解基本类型与引用类型"><a href="#理解基本类型与引用类型" class="headerlink" title="理解基本类型与引用类型"></a>理解基本类型与引用类型</h2><blockquote>
-<p>ECMAScript中有两种数据类型的值，一种是基本类型，另一种是引用类型。基本类型指的是简单的数据段，引用类型指的是可能由多个值构成的对象。</p>
-<h3 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h3><p>　　基本类型有5种，即 <code>String</code> <code>Number</code> <code>Boolean</code> <code>Null</code> <code>Underfined</code>。<br>基本类型的值只能是单独的数据段，不能在其上添加属性值。与引用类型作对比，引用类型是可以在其上添加属性值的。</p>
-<p>基本数据类型是按值访问的，所以存放在基本数据类型的变量中的事具体的值，我们可以直 接操作变量中的值。</p>
+        <blockquote>
+<p>将一个数分解质因子(因为一个数字要么是质数要么是能分解为质数的乘积)，或者求一个数字的质因子算法—- <strong>Pollard Rho</strong> 因数分解。</p>
 </blockquote>
-<pre><code>var num1=5;
-var num2=num1;
-</code></pre><blockquote>
-<p>如上代码中创建了一个<code>num1</code>变量并赋值5，然后将其复制到新创建的<code>num2</code>中,这时候的两个变量是完全两个独立的值，一个的值改变并不会影响另一个，在复制时只是将其中的值传给了另一个变量。</p>
-<h3 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h3><p>引用类型的值通俗点来说可以是由多个基本类型的值（也可以是对象）组成的对象。与基本类型的变量不同的是，引用类型的变量中保存的并不是对象的值。而是指向内存中对象值的引用。</p>
-</blockquote>
-<pre><code>var obj1=new object();
-var obj2=obj1;
-obj1.name=&quot;zhangchong&quot;;
-alert(obj2.name);//zhangchong
-</code></pre><blockquote>
-<p>由此复制操作可看出，在引用类型变量中存储的是指向实际存储位置的引用，复制只是将存在其中的引用赋值给了obj2。</p>
-</blockquote>
-<h3 id="javascript中的按值传递"><a href="#javascript中的按值传递" class="headerlink" title="javascript中的按值传递"></a>javascript中的按值传递</h3><blockquote>
-<p>先来看几个例子：</p>
-</blockquote>
-<pre><code>1.function addOne(num){
-    num++;
+<ul>
+<li>如果这个质数恰等于n，则说明分解质因数的过程已经结束，打印出即可。</li>
+<li>如果n&lt;&gt;k，但n能被k整除，则应打印出k的值，并用n除以k的商,作为新的正整数你n,<br>　重复执行第一步。</li>
+<li><p>如果n不能被k整除，则用k+1作为k的值,重复执行第一步。</p>
+<pre><code>#include&lt;cmath&gt;
+#include&lt;stdio.h&gt;
+using namespace std;
+void primeDecomposition(int n){
+    int i=0;
+    if(n==2){
+        printf(&quot;2&quot;);
  }
- var num1=1;
- var result=addOne(num1);
- alert(num1);//1
- alert(result);//2
-
-2.function setAge(obj,num){
-    obj.age=num;
+    else if(n==1){
+     printf(&quot;1不能再分解!&quot;);
  }
- var zhangsan=new object();
- setAge(zhangsan,10);
- alert(zhangsan.age);//10
-
-3.function setAge(obj,num){
-    obj.age=num;
-    obj=new object();
-    obj.age=20;
+ else{
+      for(i=2;i&lt;=sqrt(n);i++){
+         while(n!=i){
+              if(n%i==0){
+                   printf(&quot;%d\t&quot;,i);
+                    n=n/i;
+            }
+              else{
+                 break;
+             }
+            }
+     }
+     printf(&quot;%d\n&quot;,n);
  }
- var wangwu=new object();
- setAge(wangwu,8);
- alert(wangwu.age);//8
-</code></pre><blockquote>
-<p>上面的三段代码将<code>javascript</code>中传递参数时的按值传递体现的淋漓尽致。</p>
-<p>1.首先第一段中，可以看出基本类型值在传递的时候只是将自己的值传入函数中，在函数中任何的操作都不会影响到外边原本的变量。</p>
-<p>2.第二段代码中，将引用类型的变量传入函数中，此处可能就会引起人们的不理解，js中不是按值传递，为什么在函数中做的修改会反映到外界原本的对象身上。其实此处仍然是按值传递，因为你继续看第三段代码，<code>wangwu</code>是按引用传递的话，那么最后<code>alert</code>的值应该是<code>20</code>。</p>
-<p>3.所以此处到底应该怎么理解呢，首先你要先明白上边所叙述的引用类型的变量当中究竟存储的是什么。是<strong>引用</strong>！是指向内存中引用类型对象的引用。在向函数的形参传递时，只是将自身变量中保存的引用值复制了一份，给了形参。所以在第二段代码中，<code>obj</code>的值是指向内存中<code>zhangsan</code>的引用，故函数中的修改可以影响到外边的引用类型<code>zhangsan</code>。而第三段代码中<code>obj.age=num</code>，此时<code>obj</code>中保存的时<code>wangwu</code>的引用，但<code>obj=new object</code>已将<code>obj</code>中保存的引用值更新为新生成对象值的引用。所以<code>obj.age=20</code>修改的是新生成对象的<code>age</code>。而函数外的<code>wangwu</code>中保存的仍是原本对象的引用，故<code>wangwu.age</code>仍是<code>18</code>。</p>
+}
+int main(){
+    for(int k=0;k&lt;=100;k++){
+    int n;
+    printf(&quot;请输入要分解的数字n:\n&quot;);
+    scanf(&quot;%d&quot;,&amp;n);
+    primeDecomposition(n);
+    }
+    return 0;
+}
+</code></pre></li>
+</ul>
+<blockquote>
+<p>对n进行质因数分解，从2开始依次增加找到一个该数最小的质因子k，直到增加到该数的算术平方根（因为如果一个数直到他的算数平方根为止都没有质因子，后边也不会有了）。<br>找到其最小的质因子之后，将其打印出来，然后用n/k将结果赋值给n，紧接着上一步的k往后继续进行上述步骤<br>如果直到算数平方根都没有质因子，便直接打印出该数，此时该数是质数。</p>
+<p>如果不想分解之后有重复的因子:</p>
 </blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">#include&lt;stdio.h&gt;</div><div class="line">int a[20];</div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">    int n,i,num=0;</div><div class="line">    scanf(&quot;%d&quot;,&amp;n);</div><div class="line">      for (i=2;i*i&lt;=n;i++)</div><div class="line">        &#123;</div><div class="line">            if (n%i==0) a[num++]=i;</div><div class="line">            while(n%i==0) n=n/i;</div><div class="line">        &#125;</div><div class="line">      if (n&gt;1) a[num++]=n;</div><div class="line">        for (i=0;i&lt;num;i++)</div><div class="line">          printf(&quot;%d &quot;,a[i]);</div><div class="line">     printf(&quot;\n&quot;);</div><div class="line">   return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -475,7 +491,9 @@ alert(obj2.name);//zhangchong
       
         <div class="post-tags">
           
-            <a href="/tags/javascript/" rel="tag"> <i class="fa fa-tag"></i> javascript</a>
+            <a href="/tags/acm/" rel="tag"> <i class="fa fa-tag"></i> acm</a>
+          
+            <a href="/tags/算法/" rel="tag"> <i class="fa fa-tag"></i> 算法</a>
           
         </div>
       
@@ -488,8 +506,8 @@ alert(obj2.name);//zhangchong
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/13/原生js实现选项卡/" rel="next" title="原生js实现选项卡">
-                <i class="fa fa-chevron-left"></i> 原生js实现选项卡
+              <a href="/2017/10/25/原生JS实现观察者模式中的eventEmitter/" rel="next" title="原生JS实现观察者模式中的eventEmitter">
+                <i class="fa fa-chevron-left"></i> 原生JS实现观察者模式中的eventEmitter
               </a>
             
           </div>
@@ -497,10 +515,6 @@ alert(obj2.name);//zhangchong
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/28/export-export-default-exports-module-exports区别与联系/" rel="prev" title="export export default exports module.exports区别与联系">
-                export export default exports module.exports区别与联系 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -554,17 +568,8 @@ alert(obj2.name);//zhangchong
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -633,22 +638,6 @@ alert(obj2.name);//zhangchong
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#理解基本类型与引用类型"><span class="nav-number">1.</span> <span class="nav-text">理解基本类型与引用类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本类型"><span class="nav-number">1.1.</span> <span class="nav-text">基本类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用类型"><span class="nav-number">1.2.</span> <span class="nav-text">引用类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#javascript中的按值传递"><span class="nav-number">1.3.</span> <span class="nav-text">javascript中的按值传递</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
